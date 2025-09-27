@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="logo-animation">
+                    <i class="fab fa-youtube"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-download"></i>
+                </div>
+                <h1>Tharu Admin YouTube Downloader </h1>
+                <p>Download videos and convert to MP3 in high quality</p>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <input type="url" id="youtubeUrl" 
+                           placeholder="Paste YouTube URL here..." 
+                           class="url-input">
+                    <button id="getInfoBtn" class="info-btn">
+                        <i class="fas fa-info-circle"></i>
+                        Get Info
+                    </button>
+                </div>
+            </div>
+
+            <div id="videoInfo" class="video-info hidden">
+                <div class="thumbnail-container">
+                    <img id="videoThumbnail" src="" alt="Video Thumbnail">
+                </div>
+                <div class="video-details">
+                    <h3 id="videoTitle"></h3>
+                    <div class="video-meta">
+                        <span id="videoUploader"></span>
+                        <span id="videoDuration"></span>
+                        <span id="videoViews"></span>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="option-group">
+                        <label>Download Type:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="downloadType" value="mp3" checked>
+                                <span>MP3 Audio</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="downloadType" value="video">
+                                <span>Video</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group" id="qualityOptions">
+                        <label>Video Quality:</label>
+                        <select id="videoQuality" class="quality-select">
+                            <option value="best">Best Quality</option>
+                            <option value="720p">720p HD</option>
+                            <option value="480p">480p</option>
+                            <option value="360p">360p</option>
+                        </select>
+                    </div>
+
+                    <button id="downloadBtn" class="download-main-btn">
+                        <i class="fas fa-download"></i>
+                        Start Download
+                    </button>
+                </div>
+            </div>
+
+            <div id="progressSection" class="progress-section hidden">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span id="progressText">Starting...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                </div>
+
+                <div id="downloadSection" class="download-section hidden">
+                    <button id="finalDownloadBtn" class="final-download-btn">
+                        <i class="fas fa-file-download"></i>
+                        Download File
+                    </button>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-music"></i>
+                    <span>MP3 Convert</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-video"></i>
+                    <span>Video Download</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-hd"></i>
+                    <span>Multiple Quality</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
